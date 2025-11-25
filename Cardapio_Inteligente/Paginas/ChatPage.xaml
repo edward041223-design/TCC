@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cardapio_Inteligente.Paginas.ChatPage"
+             Title="Chat IA - Intolerância à Lactose">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MessageLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryText}" />
+                <Setter Property="Margin" Value="8,4" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,Auto" Padding="10" BackgroundColor="{StaticResource Background}">
+        <ScrollView x:Name="ChatScroll" Grid.Row="0">
+            <VerticalStackLayout x:Name="MessagesStack" Spacing="8" />
+        </ScrollView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,Auto" Padding="10,5" 
+              BackgroundColor="{StaticResource Surface}" RowSpacing="0">
+            <Entry x:Name="PromptEntry" 
+                   Grid.Column="0"
+                   Placeholder="Pergunte algo sobre intolerância à lactose..."
+                   TextColor="{StaticResource PrimaryText}" 
+                   PlaceholderColor="{StaticResource SecondaryText}"
+                   BackgroundColor="Transparent"
+                   HeightRequest="50"
+                   VerticalOptions="Center" />
+            <Button x:Name="SendButton" 
+                    Grid.Column="1"
+                    Text="Enviar" 
+                    Clicked="OnSendClicked"
+                    BackgroundColor="{StaticResource Accent}" 
+                    TextColor="Black" 
+                    Margin="10,0,0,0"
+                    HeightRequest="50"
+                    WidthRequest="80"
+                    VerticalOptions="Center" />
+        </Grid>
+    </Grid>
+</ContentPage>

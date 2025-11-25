@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cardapio_Inteligente.Paginas.PaginaInicial"
+             Title="Cardápio Inteligente">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+
+            <Label Text="Cardápio Inteligente" Style="{StaticResource TitleLabel}" />
+
+            <Grid ColumnDefinitions="*, auto" RowDefinitions="Auto">
+                <SearchBar x:Name="barraDeBusca" Placeholder="Buscar prato..." Grid.Column="0"/>
+                <Button Text="Assistente" Grid.Column="1" Style="{StaticResource PrimaryButton}" Margin="8,0,0,0" Clicked="OnAssistenteClicked"/>
+            </Grid>
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="0,6,0,0">
+                <Button x:Name="btnSemLactose" Text="Sem Lactose" Style="{StaticResource GhostButton}" Clicked="btnSemLactose_Clicked"/>
+                <Button x:Name="btnComLactose" Text="Todos" Style="{StaticResource GhostButton}" Clicked="btnComLactose_Clicked"/>
+            </HorizontalStackLayout>
+
+            <CollectionView x:Name="listaDePratos" Margin="0,12,0,0" SelectionMode="None" HeightRequest="420">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Style="{StaticResource Card}">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding ItemMenu}" Style="{StaticResource CardTitle}" />
+                                <Label Text="{Binding Categoria}" Style="{StaticResource CardText}" />
+                                <Label Text="{Binding Ingredientes}" Style="{StaticResource CardText}" />
+                                <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="10" Margin="0,8,0,0">
+                                    <Label Text="{Binding Preco, StringFormat='R$ {0:F2}'}" Style="{StaticResource CardTitle}" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding TemLactose}" Style="{StaticResource CardText}" HorizontalOptions="End"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Pergunte ao Assistente sobre o Cardápio:" FontAttributes="Bold" TextColor="{StaticResource AccentSoft}" Margin="0,10,0,0" />
+
+            <Grid ColumnDefinitions="*, auto" RowDefinitions="Auto">
+                <Entry x:Name="txtPergunta" Placeholder="Ex: Quero pratos sem lactose" BackgroundColor="{StaticResource CardBackground}" TextColor="{StaticResource PrimaryText}" PlaceholderColor="{StaticResource SecondaryText}" Grid.Column="0" />
+                <Button x:Name="btnPerguntar" Text="➡" Grid.Column="1" Clicked="btnPerguntar_Clicked" Style="{StaticResource PrimaryButton}" WidthRequest="60" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

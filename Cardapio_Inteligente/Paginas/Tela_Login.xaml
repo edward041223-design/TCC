@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cardapio_Inteligente.Paginas.Tela_Login"
+             NavigationPage.HasNavigationBar="False"
+             Title="Tela de Login"
+             BackgroundColor="{StaticResource Background}">
+
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" Padding="20" Spacing="20">
+
+            <Frame Style="{StaticResource Card}" Padding="20" HasShadow="True">
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="Acesse sua conta" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Accent}" HorizontalOptions="Center" />
+
+                    <Entry x:Name="txtEmail" Placeholder="Digite seu e-mail" Keyboard="Email" BackgroundColor="#08111B" TextColor="{StaticResource PrimaryText}" PlaceholderColor="{StaticResource SecondaryText}" />
+
+                    <Entry x:Name="txtSenha" Placeholder="Digite sua senha" IsPassword="True" BackgroundColor="#08111B" TextColor="{StaticResource PrimaryText}" PlaceholderColor="{StaticResource SecondaryText}" />
+
+                    <Button x:Name="btnEntrar" Text="Entrar" Style="{StaticResource PrimaryButton}" Clicked="btnEntrar_Clicked" />
+
+                    <Label x:Name="lblMensagemErro" Text="Mensagem de erro" TextColor="{StaticResource Danger}" HorizontalOptions="Center" IsVisible="False" />
+
+                    <ActivityIndicator x:Name="activityIndicator" IsVisible="False" IsRunning="False" Color="{StaticResource Accent}" />
+
+                    <Button x:Name="btnNaoTemCadastro" Text="Não tem uma conta? Clique aqui." Style="{StaticResource GhostButton}" Clicked="btnNaoTemCadastro_Clicked"/>
+
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

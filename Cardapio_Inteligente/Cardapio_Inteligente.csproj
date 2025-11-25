@@ -1,0 +1,87 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<!-- Build targets: only Android and Windows (iOS/MacCatalyst removed intentionally) -->
+		<TargetFrameworks>net8.0-android;net8.0-windows10.0.19041.0</TargetFrameworks>
+		
+		<OutputType>Exe</OutputType>
+		<RootNamespace>Cardapio_Inteligente</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>Cardapio_Inteligente</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.cardapio_inteligente</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<WindowsPackageType>None</WindowsPackageType>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	 <None Remove="Platforms\Android\Resources\xml\network_security_config.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- MAUI -->
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		
+		<!-- BCrypt para senhas -->
+		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	 <MauiXaml Update="Paginas\ChatPage.xaml">
+	 <Generator>MSBuild:Compile</Generator>
+	 </MauiXaml>
+	 <MauiXaml Update="Paginas\PaginaInicial.xaml">
+	 <Generator>MSBuild:Compile</Generator>
+	 </MauiXaml>
+	 <MauiXaml Update="Paginas\Tela_Cadastro.xaml">
+	 <Generator>MSBuild:Compile</Generator>
+	 </MauiXaml>
+	 <MauiXaml Update="Paginas\Tela_Login.xaml">
+	 <Generator>MSBuild:Compile</Generator>
+	 </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+ 	<!-- Exclude Android-specific source from non-Android builds -->
+ 	<Compile Remove="servicos\\LlamaServiceAndroid.cs" />
+ 	</ItemGroup>
+
+ 	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+ 	<Compile Include="servicos\\LlamaServiceAndroid.cs" />
+ 	</ItemGroup>
+
+</Project>

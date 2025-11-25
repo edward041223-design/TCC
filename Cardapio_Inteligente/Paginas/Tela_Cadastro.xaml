@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cardapio_Inteligente.Paginas.Tela_Cadastro"
+             Title="Cadastro Inteligente"
+             BackgroundColor="{StaticResource Background}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="14" HorizontalOptions="Center" MaximumWidthRequest="720">
+
+            <Label Text="Cadastro Inteligente" Style="{StaticResource TitleLabel}" />
+
+            <Frame Style="{StaticResource Card}">
+                <VerticalStackLayout Spacing="12">
+                    <Label x:Name="lblPergunta" Text="Bem-vindo! Preencha as informações abaixo." FontAttributes="Bold" TextColor="{StaticResource Accent}" />
+                    <Entry x:Name="txtNome" Placeholder="Nome completo" BackgroundColor="#08111B" TextColor="{StaticResource PrimaryText}" PlaceholderColor="{StaticResource SecondaryText}" />
+                    <Entry x:Name="txtEmail" Placeholder="E-mail" Keyboard="Email" BackgroundColor="#08111B" TextColor="{StaticResource PrimaryText}" PlaceholderColor="{StaticResource SecondaryText}" />
+                    <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True" BackgroundColor="#08111B" TextColor="{StaticResource PrimaryText}" PlaceholderColor="{StaticResource SecondaryText}" />
+                    <Entry x:Name="txtTelefone" Placeholder="Telefone (opcional)" Keyboard="Telephone" BackgroundColor="#08111B" TextColor="{StaticResource PrimaryText}" PlaceholderColor="{StaticResource SecondaryText}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Quais ingredientes você não gosta? (Marque os que deseja evitar)" FontAttributes="Bold" TextColor="{StaticResource PrimaryText}" />
+            <Frame Style="{StaticResource Card}" Padding="12">
+                <ScrollView HeightRequest="200" VerticalScrollBarVisibility="Always">
+                    <FlexLayout x:Name="stackPreferencias" 
+                                Direction="Column" 
+                                Wrap="NoWrap" 
+                                JustifyContent="Start"
+                                AlignItems="Start"/>
+                </ScrollView>
+            </Frame>
+
+            <Label Text="Possui intolerância à lactose?" FontAttributes="Bold" TextColor="{StaticResource PrimaryText}" />
+            <VerticalStackLayout>
+                <RadioButton x:Name="rbtNenhuma" Content="Nenhuma" GroupName="Alergias" IsChecked="True"/>
+                <RadioButton x:Name="rbtLactose" Content="Lactose" GroupName="Alergias"/>
+            </VerticalStackLayout>
+
+            <ActivityIndicator x:Name="activityIndicator" IsVisible="False" IsRunning="False" Color="{StaticResource Accent}" />
+            <Button x:Name="btnSalvar" Text="Salvar Cadastro e Fazer Login" Clicked="btnSalvar_Clicked" Style="{StaticResource PrimaryButton}" />
+            <Button x:Name="btnCancelar" Text="Cancelar e Voltar para Login" Clicked="btnCancelar_Clicked" Style="{StaticResource GhostButton}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

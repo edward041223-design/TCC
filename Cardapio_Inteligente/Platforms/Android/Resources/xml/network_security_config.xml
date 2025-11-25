@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+	<!-- ✅ Permite tráfego HTTP (sem HTTPS) para desenvolvimento local -->
+	<domain-config cleartextTrafficPermitted="true">
+		<!-- 10.0.2.2 = localhost da máquina no emulador Android -->
+		<domain includeSubdomains="true">10.0.2.2</domain>
+		<!-- localhost para casos especiais -->
+		<domain includeSubdomains="true">localhost</domain>
+		<!-- 192.168.x.x para dispositivos físicos na rede local -->
+		<domain includeSubdomains="true">192.168.0.0</domain>
+		<domain includeSubdomains="true">192.168.1.0</domain>
+		<domain includeSubdomains="true">192.168.2.0</domain>
+	</domain-config>
+	
+	<!-- ⚠️ PRODUÇÃO: Remova esta config e use HTTPS -->
+</network-security-config>

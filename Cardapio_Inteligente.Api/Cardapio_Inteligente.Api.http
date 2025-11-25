@@ -1,0 +1,6 @@
+@Cardapio_Inteligente.Api_HostAddress = http://localhost:5068
+
+GET {{Cardapio_Inteligente.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

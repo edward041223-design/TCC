@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardapio_Inteligente.Api", "Cardapio_Inteligente.Api\Cardapio_Inteligente.Api.csproj", "{8ADF4AB7-5A00-4B1A-B74C-5A0D01CCA528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardapio_Inteligente", "Cardapio_Inteligente\Cardapio_Inteligente.csproj", "{67119039-7ED9-E8A6-8CA3-E9B84496B901}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8ADF4AB7-5A00-4B1A-B74C-5A0D01CCA528} = {8ADF4AB7-5A00-4B1A-B74C-5A0D01CCA528}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8ADF4AB7-5A00-4B1A-B74C-5A0D01CCA528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ADF4AB7-5A00-4B1A-B74C-5A0D01CCA528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ADF4AB7-5A00-4B1A-B74C-5A0D01CCA528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ADF4AB7-5A00-4B1A-B74C-5A0D01CCA528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67119039-7ED9-E8A6-8CA3-E9B84496B901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67119039-7ED9-E8A6-8CA3-E9B84496B901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67119039-7ED9-E8A6-8CA3-E9B84496B901}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{67119039-7ED9-E8A6-8CA3-E9B84496B901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67119039-7ED9-E8A6-8CA3-E9B84496B901}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {670675BF-B9C3-4AEB-A32B-1875269E447C}
+	EndGlobalSection
+EndGlobal
