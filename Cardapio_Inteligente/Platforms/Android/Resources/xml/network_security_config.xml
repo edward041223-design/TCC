@@ -7,9 +7,10 @@
 		<!-- localhost para casos especiais -->
 		<domain includeSubdomains="true">localhost</domain>
 		<!-- 192.168.x.x para dispositivos físicos na rede local -->
-		<domain includeSubdomains="true">192.168.0.0</domain>
 		<domain includeSubdomains="true">192.168.1.0</domain>
-		<domain includeSubdomains="true">192.168.2.0</domain>
+		<domain includeSubdomains="true">192.168.56.0</domain>
+		<domain includeSubdomains="true">192.168.35.0</domain>
+		<domain includeSubdomains="true">192.168.154.0</domain>
 	</domain-config>
 	
 	<!-- ⚠️ PRODUÇÃO: Remova esta config e use HTTPS -->

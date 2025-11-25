@@ -175,9 +175,15 @@ namespace Cardapio_Inteligente.Servicos
             }
 
             // Se chegou aqui, nenhum endpoint funcionou
-            var errorMessage = $"❌ Não foi possível conectar à API local em nenhum endpoint configurado.\n\n" +
-                             $"Endpoints testados:\n{string.Join("\n", _baseAddresses.Where(a => !string.IsNullOrWhiteSpace(a)))}\n\n" +
-                             $"Último erro: {lastException?.Message}\n\n" +
+            var errorMessage = $"❌ Não foi possível conectar à API local em nenhum endpoint configurado.
+
+" +
+                             $"Endpoints testados:\n{string.Join("\n", _baseAddresses.Where(a => !string.IsNullOrWhiteSpace(a)))}
+
+" +
+                             $"Último erro: {lastException?.Message}
+
+" +
                              $"Soluções:\n" +
                              $"1. Desktop: Certifique-se que a API foi iniciada automaticamente\n" +
                              $"2. Android no emulador: Use o IP10.0.2.2:5068 para acessar localhost do host\n" +

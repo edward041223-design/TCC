@@ -55,7 +55,14 @@ namespace Cardapio_Inteligente.Paginas
             catch (Exception ex)
             {
                 RemoverLoading();
-                AdicionarMensagem("Erro", $"Não foi possível conectar à IA: {ex.Message}", false);
+                
+                // Format the error message to handle line breaks properly
+                var errorMessage = $"Não foi possível conectar à IA: {ex.Message}";
+                
+                // Use helper method to format the error message with proper line breaks
+                errorMessage = FormatErrorMessage(errorMessage);
+                
+                AdicionarMensagem("Erro", errorMessage, false);
             }
             finally
             {
@@ -123,7 +130,12 @@ namespace Cardapio_Inteligente.Paginas
                 TextColor = isUsuario ? Microsoft.Maui.Graphics.Colors.LightBlue : Microsoft.Maui.Graphics.Colors.White,
                 FontSize = 14,
                 Margin = new Thickness(10, 5),
-                LineBreakMode = LineBreakMode.WordWrap
+                LineBreakMode = LineBreakMode.WordWrap,
+                MaxLines = 10, // Limit number of lines to prevent UI issues
+                BackgroundColor = isUsuario ? Microsoft.Maui.Graphics.Colors.DarkBlue : Microsoft.Maui.Graphics.Colors.DarkSlateGray,
+                Padding = new Thickness(10, 5),
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Start
             };
 
             MessagesStack.Children.Add(mensagem);
@@ -146,6 +158,13 @@ namespace Cardapio_Inteligente.Paginas
         {
             PromptEntry.IsEnabled = enabled;
             SendButton.IsEnabled = enabled;
+        }
+
+        // Helper method to format error messages with proper line breaks for MAUI display
+        private string FormatErrorMessage(string errorMessage)
+        {
+            // Replace literal \n (which appears as \\n in the exception message) with actual newlines
+            return errorMessage.Replace("\\n", "\n").Replace("\\n\\n", "\n\n");
         }
     }
 
