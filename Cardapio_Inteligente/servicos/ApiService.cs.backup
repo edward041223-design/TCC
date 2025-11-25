@@ -175,16 +175,21 @@ namespace Cardapio_Inteligente.Servicos
             }
 
             // Se chegou aqui, nenhum endpoint funcionou
-            var errorMessage = 
-                "❌ Não foi possível conectar à API local em nenhum endpoint configurado." + Environment.NewLine + Environment.NewLine + 
-                "Endpoints testados:" + Environment.NewLine + string.Join(Environment.NewLine, _baseAddresses.Where(a => !string.IsNullOrWhiteSpace(a))) + Environment.NewLine + Environment.NewLine + 
-                "Último erro: " + (lastException?.Message ?? "") + Environment.NewLine + Environment.NewLine + 
-                "Soluções:" + Environment.NewLine + 
-                "1. Desktop: Certifique-se que a API foi iniciada automaticamente" + Environment.NewLine + 
-                "2. Android no emulador: Use o IP 10.0.2.2:5068 para acessar localhost do host" + Environment.NewLine + 
-                "3. Android em dispositivo físico: O app tentou descobrir automaticamente o servidor na rede local" + Environment.NewLine + 
-                "4. Verifique se o MySQL está rodando (banco: cardapio_db)" + Environment.NewLine + 
-                "5. Verifique o firewall do Windows";
+            var errorMessage = $"❌ Não foi possível conectar à API local em nenhum endpoint configurado.
+
+" +
+                             $"Endpoints testados:\n{string.Join("\n", _baseAddresses.Where(a => !string.IsNullOrWhiteSpace(a)))}
+
+" +
+                             $"Último erro: {lastException?.Message}
+
+" +
+                             $"Soluções:\n" +
+                             $"1. Desktop: Certifique-se que a API foi iniciada automaticamente\n" +
+                             $"2. Android no emulador: Use o IP10.0.2.2:5068 para acessar localhost do host\n" +
+                             $"3. Android em dispositivo físico: O app tentou descobrir automaticamente o servidor na rede local\n" +
+                             $"4. Verifique se o MySQL está rodando (banco: cardapio_db)\n" +
+                             $"5. Verifique o firewall do Windows";
 
             throw new Exception(errorMessage);
         }

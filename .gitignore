@@ -2,21 +2,47 @@
 # Backup files
 *.backup
 
+# Compiled and build artifacts
+*.exe
+*.dll
+*.so
+*.o
+*.obj
+*.out
+*.class
+*.pyc
+__pycache__/
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+.env
+.env.local
+*.env.*
+
 # Logs and temp files
 *.log
 *.tmp
 *.swp
 
-# Environment
-.env
-.env.local
-*.env.*
-
 # Editors
 .vscode/
 .idea/
+*.swo
 
-# OS generated files
+# Build directories
+dist/
+build/
+target/
+.gradle/
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# OS
 .DS_Store
 Thumbs.db
 ```
