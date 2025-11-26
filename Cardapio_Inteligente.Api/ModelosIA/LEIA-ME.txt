@@ -1,0 +1,51 @@
+===============================================
+   MODELO DE IA - Phi-3 Mini (GGUF)
+===============================================
+
+📌 ARQUIVO NECESSÁRIO:
+   Phi-3-mini-4k-instruct-q4.gguf
+
+📏 TAMANHO:
+   Aproximadamente 2.4 GB
+
+🔗 DOWNLOAD:
+   https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf
+   
+📝 INSTRUÇÕES:
+
+1. Acesse o link acima
+2. Clique em "Files and versions"
+3. Baixe o arquivo: Phi-3-mini-4k-instruct-q4.gguf
+4. Coloque o arquivo NESTA PASTA (ModelosIA/)
+5. Reinicie a API
+
+🖥️ REQUISITOS:
+   - RAM: Mínimo 8 GB (recomendado 16 GB)
+   - CPU: Qualquer processador moderno (4+ núcleos)
+   - Disco: 2.5 GB livres
+
+⚠️ OBSERVAÇÕES:
+   - O modelo é OPCIONAL
+   - Se não baixar, a API funciona normalmente
+   - Porém, o Assistente Inteligente não responderá
+   - Primeira carga demora 30-60 segundos
+
+✅ VERIFICAÇÃO:
+   Após colocar o arquivo aqui, reinicie a API.
+   No console deve aparecer:
+   "🤖 Serviço de IA inicializado com sucesso."
+
+❌ SE DER ERRO:
+   - Verifique se o nome do arquivo está EXATO
+   - Verifique se o arquivo não está corrompido
+   - Verifique se tem RAM suficiente
+   
+===============================================
+Estrutura esperada:
+
+TCC/
+└── Cardapio_Inteligente.Api/
+    └── ModelosIA/
+        ├── LEIA-ME.txt (este arquivo)
+        └── Phi-3-mini-4k-instruct-q4.gguf (BAIXAR)
+===============================================
